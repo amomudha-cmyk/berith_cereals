@@ -136,81 +136,64 @@
       cursor: pointer;
     }
 
-    /* ----- HERO SECTION ----- */
-    .hero {
+    /* ----- TRUST BANNER ----- */
+    .trust-banner {
       background: linear-gradient(135deg, var(--primary-deep-green) 0%, #2a7a4a 100%);
       color: var(--white);
-      padding: 4rem 0;
-      margin-bottom: 3rem;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .hero:before {
-      content: '🌾';
-      position: absolute;
-      font-size: 15rem;
-      opacity: 0.08;
-      right: -50px;
-      bottom: -50px;
-      transform: rotate(-15deg);
-    }
-
-    .hero-content {
-      position: relative;
-      z-index: 2;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 3rem;
-      align-items: center;
-    }
-
-    .hero h1 {
-      font-size: 3.5rem;
-      color: var(--white);
-      margin-bottom: 1.5rem;
-    }
-
-    .hero h1 span {
-      color: var(--accent-gold);
-    }
-
-    .hero p {
-      font-size: 1.2rem;
+      padding: 2rem 0;
       margin-bottom: 2rem;
-      opacity: 0.95;
     }
 
     .trust-badges {
       display: flex;
-      gap: 2rem;
-      margin-top: 2rem;
+      justify-content: center;
+      gap: 3rem;
+      flex-wrap: wrap;
     }
 
     .badge {
       display: flex;
       align-items: center;
-      gap: 0.5rem;
+      gap: 0.8rem;
       background: rgba(255, 255, 255, 0.15);
-      padding: 0.5rem 1.2rem;
+      padding: 0.8rem 2rem;
       border-radius: 50px;
       backdrop-filter: blur(10px);
       border: 1px solid rgba(255, 255, 255, 0.2);
+      font-size: 1.2rem;
+      font-weight: 500;
     }
 
-    .hero-image {
-      background: rgba(255, 255, 255, 0.1);
-      border-radius: 30px;
-      padding: 2rem;
-      text-align: center;
-      backdrop-filter: blur(5px);
-      border: 1px solid rgba(255, 255, 255, 0.2);
-    }
-
-    .hero-image i {
-      font-size: 8rem;
+    .badge i {
       color: var(--accent-gold);
+      font-size: 1.4rem;
+    }
+
+    /* ----- SERVICES SECTION ----- */
+    .services {
+      padding: 4rem 0;
+    }
+
+    .service-card {
+      background: var(--white);
+      padding: 2.5rem;
+      border-radius: 20px;
+      box-shadow: var(--shadow);
+      text-align: center;
+      border-bottom: 4px solid var(--accent-gold);
+      max-width: 400px;
+      margin: 0 auto;
+    }
+
+    .service-card i {
+      font-size: 3rem;
+      color: var(--primary-deep-green);
+      margin-bottom: 1.5rem;
+    }
+
+    .service-card h3 {
       margin-bottom: 1rem;
+      font-size: 1.5rem;
     }
 
     .btn {
@@ -233,44 +216,6 @@
       box-shadow: 0 12px 30px rgba(212, 160, 23, 0.4);
     }
 
-    .btn-outline {
-      background: transparent;
-      border: 2px solid var(--white);
-      color: var(--white);
-      box-shadow: none;
-      margin-left: 1rem;
-    }
-
-    .btn-outline:hover {
-      background: var(--white);
-      color: var(--primary-deep-green);
-    }
-
-    /* ----- SERVICES SECTION ----- */
-    .services {
-      padding: 4rem 0;
-    }
-
-    .service-card {
-      background: var(--white);
-      padding: 2.5rem;
-      border-radius: 20px;
-      box-shadow: var(--shadow);
-      text-align: center;
-      border-bottom: 4px solid var(--accent-gold);
-    }
-
-    .service-card i {
-      font-size: 3rem;
-      color: var(--primary-deep-green);
-      margin-bottom: 1.5rem;
-    }
-
-    .service-card h3 {
-      margin-bottom: 1rem;
-      font-size: 1.5rem;
-    }
-
     /* ----- PRODUCT CATALOG ----- */
     .products {
       padding: 4rem 0;
@@ -279,7 +224,7 @@
 
     .product-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
       gap: 2rem;
     }
 
@@ -297,30 +242,43 @@
     }
 
     .product-image {
-      height: 200px;
-      background: linear-gradient(135deg, var(--primary-deep-green), #2a7a4a);
+      height: 220px;
+      background: linear-gradient(135deg, #f5e6c8 0%, #e8d5b0 100%);
       display: flex;
       align-items: center;
       justify-content: center;
-      color: var(--white);
       position: relative;
+      overflow: hidden;
     }
 
-    .product-image i {
-      font-size: 4rem;
-      opacity: 0.9;
+    .product-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.3s;
     }
 
-    .product-image span {
+    .product-card:hover .product-image img {
+      transform: scale(1.05);
+    }
+
+    .product-image .placeholder-icon {
+      font-size: 5rem;
+      color: var(--primary-deep-green);
+      opacity: 0.3;
+    }
+
+    .product-image .price-tag {
       position: absolute;
-      bottom: 10px;
+      bottom: 15px;
       right: 15px;
       background: var(--accent-gold);
       color: var(--text-dark-brown);
-      padding: 0.3rem 1rem;
-      border-radius: 20px;
+      padding: 0.5rem 1.2rem;
+      border-radius: 25px;
       font-weight: 700;
-      font-size: 1.2rem;
+      font-size: 1.3rem;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
     }
 
     .product-info {
@@ -328,7 +286,7 @@
     }
 
     .product-info h3 {
-      font-size: 1.3rem;
+      font-size: 1.4rem;
       margin-bottom: 0.5rem;
       color: var(--primary-deep-green);
     }
@@ -337,7 +295,7 @@
       color: var(--text-dark-brown);
       margin: 1rem 0;
       font-size: 0.95rem;
-      line-height: 1.5;
+      line-height: 1.6;
     }
 
     .product-footer {
@@ -357,15 +315,17 @@
     .whatsapp-btn {
       background: #25D366;
       color: white;
-      padding: 0.5rem 1.2rem;
+      padding: 0.7rem 1.5rem;
       border-radius: 50px;
       text-decoration: none;
       font-weight: 600;
-      font-size: 0.9rem;
+      font-size: 0.95rem;
       transition: all 0.3s;
       display: inline-flex;
       align-items: center;
       gap: 0.5rem;
+      border: none;
+      cursor: pointer;
     }
 
     .whatsapp-btn:hover {
@@ -409,11 +369,11 @@
 
     .items-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+      grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
       gap: 1rem;
       max-height: 400px;
       overflow-y: auto;
-      padding: 1rem;
+      padding: 1.5rem;
       background: var(--white);
       border-radius: 20px;
       box-shadow: var(--shadow);
@@ -421,12 +381,13 @@
 
     .item-tag {
       background: var(--background-cream);
-      padding: 0.8rem 1.2rem;
+      padding: 1rem 1.2rem;
       border-radius: 12px;
       text-align: center;
       font-weight: 500;
       border: 1px solid rgba(31, 93, 58, 0.1);
       transition: all 0.2s;
+      cursor: pointer;
     }
 
     .item-tag:hover {
@@ -435,7 +396,7 @@
       border-color: var(--accent-gold);
     }
 
-    /* ----- CONTACT & WHATSAPP FLOAT ----- */
+    /* ----- CONTACT SECTION ----- */
     .contact-section {
       padding: 4rem 0;
       background: var(--primary-deep-green);
@@ -543,19 +504,6 @@
 
     /* ----- RESPONSIVE DESIGN ----- */
     @media (max-width: 968px) {
-      .hero-content {
-        grid-template-columns: 1fr;
-        text-align: center;
-      }
-
-      .trust-badges {
-        justify-content: center;
-      }
-
-      .hero h1 {
-        font-size: 2.5rem;
-      }
-
       .nav-links {
         display: none;
       }
@@ -584,25 +532,20 @@
       h2:after {
         width: 40%;
       }
+
+      .trust-badges {
+        gap: 1rem;
+      }
+
+      .badge {
+        padding: 0.6rem 1.5rem;
+        font-size: 1rem;
+      }
     }
 
     @media (max-width: 640px) {
       .container {
         padding: 0 1.5rem;
-      }
-
-      .hero h1 {
-        font-size: 2rem;
-      }
-
-      .btn-outline {
-        margin-left: 0;
-        margin-top: 1rem;
-      }
-
-      .trust-badges {
-        flex-direction: column;
-        gap: 1rem;
       }
 
       .product-grid {
@@ -611,6 +554,11 @@
 
       h2 {
         font-size: 1.8rem;
+      }
+
+      .badge {
+        width: 100%;
+        justify-content: center;
       }
     }
 
@@ -628,7 +576,7 @@
 <body>
 
 <!-- Floating WhatsApp Button -->
-<a href="https://wa.me/254701892350" class="whatsapp-float" target="_blank" aria-label="Chat on WhatsApp">
+<a href="#" class="whatsapp-float" id="floatingWhatsApp" aria-label="Chat on WhatsApp">
   <i class="fab fa-whatsapp"></i>
 </a>
 
@@ -660,29 +608,14 @@
   </div>
 </header>
 
-<!-- Hero Section -->
-<section id="home" class="hero">
+<!-- Trust Banner (Replaces Hero) -->
+<section id="home" class="trust-banner">
   <div class="container">
-    <div class="hero-content">
-      <div>
-        <h1>Quality Grains, <span>A Promise</span> in Every Grain</h1>
-        <p>Premium cereals and legumes sourced from Kenya's finest farms. From our family to your table—quality you can trust.</p>
-        <div>
-          <a href="#products" class="btn">Shop Now <i class="fas fa-arrow-right"></i></a>
-          <a href="#contact" class="btn btn-outline">Contact Us</a>
-        </div>
-        <div class="trust-badges">
-          <div class="badge"><i class="fas fa-check-circle"></i> Trust ✅</div>
-          <div class="badge"><i class="fas fa-heart"></i> Warmth ✅</div>
-          <div class="badge"><i class="fas fa-crown"></i> Premium ✅</div>
-          <div class="badge"><i class="fas fa-leaf"></i> Cultural ✅</div>
-        </div>
-      </div>
-      <div class="hero-image">
-        <i class="fas fa-wheat-alt"></i>
-        <h3 style="color: var(--accent-gold);">Berith Cereals</h3>
-        <p style="color: white;">Fresh from farm to your home</p>
-      </div>
+    <div class="trust-badges">
+      <div class="badge"><i class="fas fa-check-circle"></i> Trust ✅</div>
+      <div class="badge"><i class="fas fa-heart"></i> Warmth ✅</div>
+      <div class="badge"><i class="fas fa-crown"></i> Premium ✅</div>
+      <div class="badge"><i class="fas fa-leaf"></i> Cultural ✅</div>
     </div>
   </div>
 </section>
@@ -691,15 +624,13 @@
 <section class="services">
   <div class="container">
     <h2>Our Services</h2>
-    <div style="max-width: 400px;">
-      <div class="service-card">
-        <i class="fas fa-truck"></i>
-        <h3>Fast Delivery</h3>
-        <p>We deliver fresh grains and cereals right to your doorstep anywhere in Kenya. Quick, reliable, and handled with care.</p>
-        <a href="https://wa.me/254701892350?text=Hello%20Berith%20Cereals,%20I'd%20like%20to%20inquire%20about%20delivery" class="whatsapp-btn" style="margin-top: 1.5rem;" target="_blank">
-          <i class="fab fa-whatsapp"></i> Order via WhatsApp
-        </a>
-      </div>
+    <div class="service-card">
+      <i class="fas fa-truck"></i>
+      <h3>Fast Delivery</h3>
+      <p>We deliver fresh grains and cereals right to your doorstep anywhere in Kenya. Quick, reliable, and handled with care.</p>
+      <button class="whatsapp-btn" id="deliveryInquiry" style="margin-top: 1.5rem;">
+        <i class="fab fa-whatsapp"></i> Inquire About Delivery
+      </button>
     </div>
   </div>
 </section>
@@ -756,9 +687,9 @@
       <div class="contact-card">
         <i class="fab fa-whatsapp"></i>
         <h3>WhatsApp</h3>
-        <a href="https://wa.me/254701892350" target="_blank" class="whatsapp-link">
+        <button class="whatsapp-link" id="generalWhatsApp">
           <i class="fab fa-whatsapp"></i> Chat with Us
-        </a>
+        </button>
         <p style="margin-top: 1rem; opacity: 0.8;">+254 701 892 350</p>
       </div>
       
@@ -781,13 +712,18 @@
 </footer>
 
 <script>
-  // Product Data
+  // WhatsApp Configuration
+  const WHATSAPP_NUMBER = '254701892350';
+  const COMPANY_NAME = 'Berith Cereals';
+  
+  // Product Data with Image Placeholders
   const products = [
     {
       name: "Karanga Big (Groundnuts)",
       price: "320/kg",
       rating: 5,
       description: "Large, crunchy, and nutrient-rich groundnuts, ideal for snacking, roasting, and cooking.",
+      imageUrl: "https://images.pexels.com/photos/1295572/pexels-photo-1295572.jpeg?auto=compress&cs=tinysrgb&w=400",
       icon: "fa-seedling"
     },
     {
@@ -795,6 +731,7 @@
       price: "80/kg",
       rating: 5,
       description: "A high-quality sack of maize, perfect for milling flour, making ugali, githeri, or animal feed.",
+      imageUrl: "https://images.pexels.com/photos/1437908/pexels-photo-1437908.jpeg?auto=compress&cs=tinysrgb&w=400",
       icon: "fa-wheat-alt"
     },
     {
@@ -802,6 +739,7 @@
       price: "180/kg",
       rating: 5,
       description: "Protein-rich Mwitemania beans with a firm texture and rich flavor—perfect for stews, soups, and side dishes.",
+      imageUrl: "https://images.pexels.com/photos/1435904/pexels-photo-1435904.jpeg?auto=compress&cs=tinysrgb&w=400",
       icon: "fa-leaf"
     },
     {
@@ -809,6 +747,7 @@
       price: "280/kg",
       rating: 5,
       description: "High-quality popcorn kernels that pop into fluffy, crispy, and delicious popcorn—perfect for snacking.",
+      imageUrl: "https://images.pexels.com/photos/1703273/pexels-photo-1703273.jpeg?auto=compress&cs=tinysrgb&w=400",
       icon: "fa-corn"
     },
     {
@@ -816,6 +755,7 @@
       price: "100/kg",
       rating: 5,
       description: "Traditional Kenyan shelled maize, dehusked for faster cooking and a smoother texture—perfect for githeri and soups.",
+      imageUrl: "https://images.pexels.com/photos/1437908/pexels-photo-1437908.jpeg?auto=compress&cs=tinysrgb&w=400",
       icon: "fa-wheat-alt"
     },
     {
@@ -823,6 +763,7 @@
       price: "180/kg",
       rating: 5,
       description: "Nutritious, protein-rich Nyayo beans with a soft texture—ideal for stews, soups, and side dishes.",
+      imageUrl: "https://images.pexels.com/photos/1435904/pexels-photo-1435904.jpeg?auto=compress&cs=tinysrgb&w=400",
       icon: "fa-leaf"
     },
     {
@@ -830,6 +771,7 @@
       price: "200/kg",
       rating: 5,
       description: "Creamy, protein-rich Rosecoco beans with a rich, nutty flavor—perfect for stews, soups, and curries.",
+      imageUrl: "https://images.pexels.com/photos/1435904/pexels-photo-1435904.jpeg?auto=compress&cs=tinysrgb&w=400",
       icon: "fa-leaf"
     },
     {
@@ -837,6 +779,7 @@
       price: "180/kg",
       rating: 5,
       description: "High-quality, protein-rich green grams with a rich, nutty flavor—perfect for stews, curries, and salads.",
+      imageUrl: "https://images.pexels.com/photos/1435904/pexels-photo-1435904.jpeg?auto=compress&cs=tinysrgb&w=400",
       icon: "fa-seedling"
     },
     {
@@ -844,6 +787,7 @@
       price: "200/kg",
       rating: 5,
       description: "Mild-flavored, protein-rich white cowpeas—ideal for stews, soups, and side dishes.",
+      imageUrl: "https://images.pexels.com/photos/1435904/pexels-photo-1435904.jpeg?auto=compress&cs=tinysrgb&w=400",
       icon: "fa-seedling"
     },
     {
@@ -851,6 +795,7 @@
       price: "350/kg",
       rating: 5,
       description: "Crunchy, protein-rich small groundnuts, perfect for snacking, cooking, and making peanut butter.",
+      imageUrl: "https://images.pexels.com/photos/1295572/pexels-photo-1295572.jpeg?auto=compress&cs=tinysrgb&w=400",
       icon: "fa-seedling"
     },
     {
@@ -858,6 +803,7 @@
       price: "180/kg",
       rating: 5,
       description: "Protein-rich pigeon peas with a rich, earthy flavor—perfect for stews, coconut curries, and side dishes.",
+      imageUrl: "https://images.pexels.com/photos/1435904/pexels-photo-1435904.jpeg?auto=compress&cs=tinysrgb&w=400",
       icon: "fa-leaf"
     },
     {
@@ -865,6 +811,7 @@
       price: "150/kg",
       rating: 5,
       description: "Highly nutritious black beans rich in protein, fiber, and iron—perfect for stews, soups, and side dishes.",
+      imageUrl: "https://images.pexels.com/photos/1435904/pexels-photo-1435904.jpeg?auto=compress&cs=tinysrgb&w=400",
       icon: "fa-leaf"
     },
     {
@@ -872,6 +819,7 @@
       price: "200/kg",
       rating: 5,
       description: "Premium-quality green grams sourced from Makueni, known for rich flavor and fast cooking time.",
+      imageUrl: "https://images.pexels.com/photos/1435904/pexels-photo-1435904.jpeg?auto=compress&cs=tinysrgb&w=400",
       icon: "fa-seedling"
     },
     {
@@ -879,6 +827,7 @@
       price: "180/kg",
       rating: 5,
       description: "Nutritious, protein-rich yellow beans with a soft texture and mildly sweet flavor—perfect for stews and soups.",
+      imageUrl: "https://images.pexels.com/photos/1435904/pexels-photo-1435904.jpeg?auto=compress&cs=tinysrgb&w=400",
       icon: "fa-leaf"
     }
   ];
@@ -902,14 +851,69 @@
     "Star Big", "Cards", "Pipes"
   ];
 
-  // Populate Products
+  // WhatsApp Message Functions
+  function createWhatsAppLink(message) {
+    const encodedMessage = encodeURIComponent(message);
+    return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodedMessage}`;
+  }
+
+  function openWhatsApp(message) {
+    const link = createWhatsAppLink(message);
+    window.open(link, '_blank');
+  }
+
+  // Order Product Message
+  function orderProduct(productName, productPrice) {
+    const message = `🛒 *New Order Inquiry*\n\n` +
+                   `*Product:* ${productName}\n` +
+                   `*Price:* Ksh ${productPrice}\n\n` +
+                   `Hello ${COMPANY_NAME}, I'm interested in purchasing this product. Please provide more information about availability and delivery options.\n\n` +
+                   `Thank you!`;
+    openWhatsApp(message);
+  }
+
+  // General Inquiry
+  function generalInquiry() {
+    const message = `👋 *Hello ${COMPANY_NAME}*\n\n` +
+                   `I'm contacting you from your website. I'd like to know more about your products and services.\n\n` +
+                   `Could you please provide more information?`;
+    openWhatsApp(message);
+  }
+
+  // Delivery Inquiry
+  function deliveryInquiry() {
+    const message = `🚚 *Delivery Inquiry*\n\n` +
+                   `Hello ${COMPANY_NAME},\n\n` +
+                   `I'm interested in your delivery services. Could you please provide information about:\n` +
+                   `- Delivery areas covered\n` +
+                   `- Delivery charges\n` +
+                   `- Estimated delivery time\n\n` +
+                   `Thank you!`;
+    openWhatsApp(message);
+  }
+
+  // Category Item Inquiry
+  function inquireCategoryItem(itemName, category) {
+    const message = `🌾 *Product Inquiry*\n\n` +
+                   `*Category:* ${category}\n` +
+                   `*Item:* ${itemName}\n\n` +
+                   `Hello ${COMPANY_NAME}, I'm interested in ${itemName}. Could you please provide:\n` +
+                   `- Current price\n` +
+                   `- Availability\n` +
+                   `- Minimum order quantity\n\n` +
+                   `Thank you!`;
+    openWhatsApp(message);
+  }
+
+  // Populate Products with Images
   function renderProducts() {
     const grid = document.getElementById('productGrid');
     grid.innerHTML = products.map(product => `
       <div class="product-card">
         <div class="product-image">
-          <i class="fas ${product.icon}"></i>
-          <span>Ksh ${product.price}</span>
+          <img src="${product.imageUrl}" alt="${product.name}" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+          <i class="fas ${product.icon} placeholder-icon" style="display: none;"></i>
+          <span class="price-tag">Ksh ${product.price}</span>
         </div>
         <div class="product-info">
           <h3>${product.name}</h3>
@@ -918,14 +922,22 @@
           </div>
           <p class="product-description">${product.description}</p>
           <div class="product-footer">
-            <a href="https://wa.me/254701892350?text=Hello%20Berith%20Cereals,%20I'm%20interested%20in%20${encodeURIComponent(product.name)}" 
-               class="whatsapp-btn" target="_blank">
-              <i class="fab fa-whatsapp"></i> Order
-            </a>
+            <button class="whatsapp-btn" data-product="${product.name}" data-price="${product.price}">
+              <i class="fab fa-whatsapp"></i> Order Now
+            </button>
           </div>
         </div>
       </div>
     `).join('');
+    
+    // Add event listeners to all order buttons
+    document.querySelectorAll('[data-product]').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        const productName = btn.dataset.product;
+        const productPrice = btn.dataset.price;
+        orderProduct(productName, productPrice);
+      });
+    });
   }
 
   // Populate Rice & Grains
@@ -934,12 +946,25 @@
     const grainsContainer = document.getElementById('grainsContainer');
     
     riceContainer.innerHTML = riceVarieties.map(rice => `
-      <div class="item-tag">🌾 ${rice}</div>
+      <div class="item-tag" data-item="${rice}" data-category="Rice">
+        🌾 ${rice}
+      </div>
     `).join('');
     
     grainsContainer.innerHTML = grainVarieties.map(grain => `
-      <div class="item-tag">🌱 ${grain}</div>
+      <div class="item-tag" data-item="${grain}" data-category="Grains & Legumes">
+        🌱 ${grain}
+      </div>
     `).join('');
+    
+    // Add click handlers for category items
+    document.querySelectorAll('.item-tag').forEach(item => {
+      item.addEventListener('click', () => {
+        const itemName = item.dataset.item;
+        const category = item.dataset.category;
+        inquireCategoryItem(itemName, category);
+      });
+    });
   }
 
   // Tab Switching
@@ -1001,12 +1026,48 @@
     });
   }
 
+  // Initialize WhatsApp Buttons
+  function initWhatsAppButtons() {
+    // Floating WhatsApp Button
+    document.getElementById('floatingWhatsApp').addEventListener('click', (e) => {
+      e.preventDefault();
+      generalInquiry();
+    });
+    
+    // General WhatsApp Button in Contact Section
+    document.getElementById('generalWhatsApp').addEventListener('click', (e) => {
+      e.preventDefault();
+      generalInquiry();
+    });
+    
+    // Delivery Inquiry Button
+    document.getElementById('deliveryInquiry').addEventListener('click', (e) => {
+      e.preventDefault();
+      deliveryInquiry();
+    });
+  }
+
+  // Handle Image Loading Errors
+  function handleImageErrors() {
+    document.addEventListener('error', (e) => {
+      if (e.target.tagName === 'IMG') {
+        e.target.style.display = 'none';
+        const placeholder = e.target.nextElementSibling;
+        if (placeholder) {
+          placeholder.style.display = 'flex';
+        }
+      }
+    }, true);
+  }
+
   // Initialize everything
   renderProducts();
   renderCategories();
   initTabs();
   initMobileMenu();
   initSmoothScroll();
+  initWhatsAppButtons();
+  handleImageErrors();
 </script>
 
 </body>
