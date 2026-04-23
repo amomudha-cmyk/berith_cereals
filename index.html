@@ -15,6 +15,7 @@
       --accent-gold: #D4A017;
       --background-cream: #F5E6C8;
       --text-dark-brown: #4A2E1F;
+      --hero-green: #87A96B;
       --white: #FFFFFF;
       --light-cream: #FDF8F0;
       --shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
@@ -136,64 +137,76 @@
       cursor: pointer;
     }
 
-    /* ----- TRUST BANNER ----- */
-    .trust-banner {
-      background: linear-gradient(135deg, var(--primary-deep-green) 0%, #2a7a4a 100%);
+    /* ----- HERO SECTION ----- */
+    .hero {
+      background: var(--hero-green);
       color: var(--white);
-      padding: 2rem 0;
-      margin-bottom: 2rem;
-    }
-
-    .trust-badges {
-      display: flex;
-      justify-content: center;
-      gap: 3rem;
-      flex-wrap: wrap;
-    }
-
-    .badge {
-      display: flex;
-      align-items: center;
-      gap: 0.8rem;
-      background: rgba(255, 255, 255, 0.15);
-      padding: 0.8rem 2rem;
-      border-radius: 50px;
-      backdrop-filter: blur(10px);
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      font-size: 1.2rem;
-      font-weight: 500;
-    }
-
-    .badge i {
-      color: var(--accent-gold);
-      font-size: 1.4rem;
-    }
-
-    /* ----- SERVICES SECTION ----- */
-    .services {
       padding: 4rem 0;
+      margin-bottom: 3rem;
+      position: relative;
+      overflow: hidden;
     }
 
-    .service-card {
-      background: var(--white);
-      padding: 2.5rem;
-      border-radius: 20px;
-      box-shadow: var(--shadow);
-      text-align: center;
-      border-bottom: 4px solid var(--accent-gold);
-      max-width: 400px;
-      margin: 0 auto;
+    .hero:before {
+      content: '🌾';
+      position: absolute;
+      font-size: 15rem;
+      opacity: 0.1;
+      right: -50px;
+      bottom: -50px;
+      transform: rotate(-15deg);
     }
 
-    .service-card i {
-      font-size: 3rem;
-      color: var(--primary-deep-green);
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      align-items: center;
+    }
+
+    .hero h1 {
+      font-size: 3.5rem;
+      color: var(--white);
       margin-bottom: 1.5rem;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
     }
 
-    .service-card h3 {
+    .hero h1 span {
+      color: var(--accent-gold);
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      margin-bottom: 2rem;
+      opacity: 0.95;
+      color: var(--white);
+    }
+
+    .hero-image {
+      background: rgba(255, 255, 255, 0.15);
+      border-radius: 30px;
+      padding: 2rem;
+      text-align: center;
+      backdrop-filter: blur(5px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .hero-image i {
+      font-size: 8rem;
+      color: var(--accent-gold);
       margin-bottom: 1rem;
-      font-size: 1.5rem;
+    }
+
+    .hero-image h3 {
+      color: var(--white);
+      margin-bottom: 0.5rem;
+    }
+
+    .hero-image p {
+      margin-bottom: 0;
+      font-size: 1rem;
     }
 
     .btn {
@@ -214,6 +227,19 @@
     .btn:hover {
       transform: translateY(-3px);
       box-shadow: 0 12px 30px rgba(212, 160, 23, 0.4);
+    }
+
+    .btn-outline {
+      background: transparent;
+      border: 2px solid var(--white);
+      color: var(--white);
+      box-shadow: none;
+      margin-left: 1rem;
+    }
+
+    .btn-outline:hover {
+      background: var(--white);
+      color: var(--hero-green);
     }
 
     /* ----- PRODUCT CATALOG ----- */
@@ -459,6 +485,8 @@
       margin-top: 1rem;
       font-weight: 600;
       transition: all 0.3s;
+      border: none;
+      cursor: pointer;
     }
 
     .contact-card .whatsapp-link:hover {
@@ -504,6 +532,20 @@
 
     /* ----- RESPONSIVE DESIGN ----- */
     @media (max-width: 968px) {
+      .hero-content {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+
+      .hero h1 {
+        font-size: 2.5rem;
+      }
+
+      .btn-outline {
+        margin-left: 0;
+        margin-top: 1rem;
+      }
+
       .nav-links {
         display: none;
       }
@@ -532,20 +574,15 @@
       h2:after {
         width: 40%;
       }
-
-      .trust-badges {
-        gap: 1rem;
-      }
-
-      .badge {
-        padding: 0.6rem 1.5rem;
-        font-size: 1rem;
-      }
     }
 
     @media (max-width: 640px) {
       .container {
         padding: 0 1.5rem;
+      }
+
+      .hero h1 {
+        font-size: 2rem;
       }
 
       .product-grid {
@@ -555,11 +592,6 @@
       h2 {
         font-size: 1.8rem;
       }
-
-      .badge {
-        width: 100%;
-        justify-content: center;
-      }
     }
 
     /* Animations */
@@ -568,7 +600,7 @@
       to { opacity: 1; transform: translateY(0); }
     }
 
-    .product-card, .service-card, .contact-card {
+    .product-card, .contact-card {
       animation: fadeIn 0.6s ease-out forwards;
     }
   </style>
@@ -608,29 +640,23 @@
   </div>
 </header>
 
-<!-- Trust Banner (Replaces Hero) -->
-<section id="home" class="trust-banner">
+<!-- Hero Section -->
+<section id="home" class="hero">
   <div class="container">
-    <div class="trust-badges">
-      <div class="badge"><i class="fas fa-check-circle"></i> Trust ✅</div>
-      <div class="badge"><i class="fas fa-heart"></i> Warmth ✅</div>
-      <div class="badge"><i class="fas fa-crown"></i> Premium ✅</div>
-      <div class="badge"><i class="fas fa-leaf"></i> Cultural ✅</div>
-    </div>
-  </div>
-</section>
-
-<!-- Services Section -->
-<section class="services">
-  <div class="container">
-    <h2>Our Services</h2>
-    <div class="service-card">
-      <i class="fas fa-truck"></i>
-      <h3>Fast Delivery</h3>
-      <p>We deliver fresh grains and cereals right to your doorstep anywhere in Kenya. Quick, reliable, and handled with care.</p>
-      <button class="whatsapp-btn" id="deliveryInquiry" style="margin-top: 1.5rem;">
-        <i class="fab fa-whatsapp"></i> Inquire About Delivery
-      </button>
+    <div class="hero-content">
+      <div>
+        <h1>Quality Grains, <span>A Promise</span> in Every Grain</h1>
+        <p>Premium cereals and legumes sourced from Kenya's finest farms. From our family to your table—quality you can trust.</p>
+        <div>
+          <a href="#products" class="btn">Shop Now <i class="fas fa-arrow-right"></i></a>
+          <a href="#contact" class="btn btn-outline">Contact Us</a>
+        </div>
+      </div>
+      <div class="hero-image">
+        <i class="fas fa-wheat-alt"></i>
+        <h3>Berith Cereals</h3>
+        <p>Fresh from farm to your home</p>
+      </div>
     </div>
   </div>
 </section>
@@ -716,119 +742,105 @@
   const WHATSAPP_NUMBER = '254701892350';
   const COMPANY_NAME = 'Berith Cereals';
   
-  // Product Data with Image Placeholders
+  // Product Data with Local Image Paths
   const products = [
     {
       name: "Karanga Big (Groundnuts)",
       price: "320/kg",
       rating: 5,
       description: "Large, crunchy, and nutrient-rich groundnuts, ideal for snacking, roasting, and cooking.",
-      imageUrl: "https://images.pexels.com/photos/1295572/pexels-photo-1295572.jpeg?auto=compress&cs=tinysrgb&w=400",
-      icon: "fa-seedling"
+      imageUrl: "images/karanga_big.jpg"
     },
     {
       name: "Dry Maize",
       price: "80/kg",
       rating: 5,
       description: "A high-quality sack of maize, perfect for milling flour, making ugali, githeri, or animal feed.",
-      imageUrl: "https://images.pexels.com/photos/1437908/pexels-photo-1437908.jpeg?auto=compress&cs=tinysrgb&w=400",
-      icon: "fa-wheat-alt"
+      imageUrl: "images/dry_maize.jpg"
     },
     {
       name: "Mwitemania Beans",
       price: "180/kg",
       rating: 5,
       description: "Protein-rich Mwitemania beans with a firm texture and rich flavor—perfect for stews, soups, and side dishes.",
-      imageUrl: "https://images.pexels.com/photos/1435904/pexels-photo-1435904.jpeg?auto=compress&cs=tinysrgb&w=400",
-      icon: "fa-leaf"
+      imageUrl: "images/mwitemania_beans.jpg"
     },
     {
       name: "Popcorn Maize",
       price: "280/kg",
       rating: 5,
       description: "High-quality popcorn kernels that pop into fluffy, crispy, and delicious popcorn—perfect for snacking.",
-      imageUrl: "https://images.pexels.com/photos/1703273/pexels-photo-1703273.jpeg?auto=compress&cs=tinysrgb&w=400",
-      icon: "fa-corn"
+      imageUrl: "images/popcorn_maize.jpg"
     },
     {
       name: "Muthokoi (Shelled Maize)",
       price: "100/kg",
       rating: 5,
       description: "Traditional Kenyan shelled maize, dehusked for faster cooking and a smoother texture—perfect for githeri and soups.",
-      imageUrl: "https://images.pexels.com/photos/1437908/pexels-photo-1437908.jpeg?auto=compress&cs=tinysrgb&w=400",
-      icon: "fa-wheat-alt"
+      imageUrl: "images/muthokoi.jpg"
     },
     {
       name: "Nyayo Beans",
       price: "180/kg",
       rating: 5,
       description: "Nutritious, protein-rich Nyayo beans with a soft texture—ideal for stews, soups, and side dishes.",
-      imageUrl: "https://images.pexels.com/photos/1435904/pexels-photo-1435904.jpeg?auto=compress&cs=tinysrgb&w=400",
-      icon: "fa-leaf"
+      imageUrl: "images/nyayo_beans.jpg"
     },
     {
       name: "Rosecoco Beans",
       price: "200/kg",
       rating: 5,
       description: "Creamy, protein-rich Rosecoco beans with a rich, nutty flavor—perfect for stews, soups, and curries.",
-      imageUrl: "https://images.pexels.com/photos/1435904/pexels-photo-1435904.jpeg?auto=compress&cs=tinysrgb&w=400",
-      icon: "fa-leaf"
+      imageUrl: "images/rosecoco_beans.jpg"
     },
     {
       name: "Dengu Special",
       price: "180/kg",
       rating: 5,
       description: "High-quality, protein-rich green grams with a rich, nutty flavor—perfect for stews, curries, and salads.",
-      imageUrl: "https://images.pexels.com/photos/1435904/pexels-photo-1435904.jpeg?auto=compress&cs=tinysrgb&w=400",
-      icon: "fa-seedling"
+      imageUrl: "images/dengu_special.jpg"
     },
     {
       name: "Kunde White",
       price: "200/kg",
       rating: 5,
       description: "Mild-flavored, protein-rich white cowpeas—ideal for stews, soups, and side dishes.",
-      imageUrl: "https://images.pexels.com/photos/1435904/pexels-photo-1435904.jpeg?auto=compress&cs=tinysrgb&w=400",
-      icon: "fa-seedling"
+      imageUrl: "images/kunde_white.jpg"
     },
     {
       name: "Karanga Small",
       price: "350/kg",
       rating: 5,
       description: "Crunchy, protein-rich small groundnuts, perfect for snacking, cooking, and making peanut butter.",
-      imageUrl: "https://images.pexels.com/photos/1295572/pexels-photo-1295572.jpeg?auto=compress&cs=tinysrgb&w=400",
-      icon: "fa-seedling"
+      imageUrl: "images/karanga_small.jpg"
     },
     {
       name: "Mbaazi (Pigeon Peas)",
       price: "180/kg",
       rating: 5,
       description: "Protein-rich pigeon peas with a rich, earthy flavor—perfect for stews, coconut curries, and side dishes.",
-      imageUrl: "https://images.pexels.com/photos/1435904/pexels-photo-1435904.jpeg?auto=compress&cs=tinysrgb&w=400",
-      icon: "fa-leaf"
+      imageUrl: "images/mbaazi.jpg"
     },
     {
       name: "Njahi (Black Beans)",
       price: "150/kg",
       rating: 5,
       description: "Highly nutritious black beans rich in protein, fiber, and iron—perfect for stews, soups, and side dishes.",
-      imageUrl: "https://images.pexels.com/photos/1435904/pexels-photo-1435904.jpeg?auto=compress&cs=tinysrgb&w=400",
-      icon: "fa-leaf"
+      imageUrl: "images/njahi.jpg"
     },
     {
       name: "Dengu Makueni",
       price: "200/kg",
       rating: 5,
       description: "Premium-quality green grams sourced from Makueni, known for rich flavor and fast cooking time.",
-      imageUrl: "https://images.pexels.com/photos/1435904/pexels-photo-1435904.jpeg?auto=compress&cs=tinysrgb&w=400",
-      icon: "fa-seedling"
+      imageUrl: "images/dengu_makueni.jpg"
     },
     {
       name: "Yellow Beans",
       price: "180/kg",
       rating: 5,
       description: "Nutritious, protein-rich yellow beans with a soft texture and mildly sweet flavor—perfect for stews and soups.",
-      imageUrl: "https://images.pexels.com/photos/1435904/pexels-photo-1435904.jpeg?auto=compress&cs=tinysrgb&w=400",
-      icon: "fa-leaf"
+      imageUrl: "images/yellow_beans.jpg"
     }
   ];
 
@@ -880,18 +892,6 @@
     openWhatsApp(message);
   }
 
-  // Delivery Inquiry
-  function deliveryInquiry() {
-    const message = `🚚 *Delivery Inquiry*\n\n` +
-                   `Hello ${COMPANY_NAME},\n\n` +
-                   `I'm interested in your delivery services. Could you please provide information about:\n` +
-                   `- Delivery areas covered\n` +
-                   `- Delivery charges\n` +
-                   `- Estimated delivery time\n\n` +
-                   `Thank you!`;
-    openWhatsApp(message);
-  }
-
   // Category Item Inquiry
   function inquireCategoryItem(itemName, category) {
     const message = `🌾 *Product Inquiry*\n\n` +
@@ -911,8 +911,7 @@
     grid.innerHTML = products.map(product => `
       <div class="product-card">
         <div class="product-image">
-          <img src="${product.imageUrl}" alt="${product.name}" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-          <i class="fas ${product.icon} placeholder-icon" style="display: none;"></i>
+          <img src="${product.imageUrl}" alt="${product.name}" onerror="this.src='https://via.placeholder.com/400x300/87A96B/ffffff?text=${encodeURIComponent(product.name)}'">
           <span class="price-tag">Ksh ${product.price}</span>
         </div>
         <div class="product-info">
@@ -1039,25 +1038,6 @@
       e.preventDefault();
       generalInquiry();
     });
-    
-    // Delivery Inquiry Button
-    document.getElementById('deliveryInquiry').addEventListener('click', (e) => {
-      e.preventDefault();
-      deliveryInquiry();
-    });
-  }
-
-  // Handle Image Loading Errors
-  function handleImageErrors() {
-    document.addEventListener('error', (e) => {
-      if (e.target.tagName === 'IMG') {
-        e.target.style.display = 'none';
-        const placeholder = e.target.nextElementSibling;
-        if (placeholder) {
-          placeholder.style.display = 'flex';
-        }
-      }
-    }, true);
   }
 
   // Initialize everything
@@ -1067,7 +1047,6 @@
   initMobileMenu();
   initSmoothScroll();
   initWhatsAppButtons();
-  handleImageErrors();
 </script>
 
 </body>
